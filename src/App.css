@@ -1,0 +1,12 @@
+.column {
+  flex-direction: column !important;
+}
+.s-eve {
+  justify-content: space-evenly;
+}
+.s-btw {
+  justify-content: space-between;
+}
+.f-center {
+  justify-content: center;
+}

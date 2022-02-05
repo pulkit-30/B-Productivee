@@ -27,3 +27,5 @@ package-lock.json
 firebase-sdk.txt
 firebase.json
 .firebase/
+drawable/
+layout2/
