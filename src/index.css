@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap");
+
 *,
 *::after,
 *::before {
@@ -9,11 +11,12 @@
   --default-2: #d3b1c2;
   --default-3: #a892b2;
   --default-4: #524a57;
+  --primary-font: "Comfortaa", cursive;
 }
 html {
   overflow-x: hidden;
 }
-html {
-}
+
 body {
+  font-family: var(--primary-font);
 }

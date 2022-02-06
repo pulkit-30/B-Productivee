@@ -10,3 +10,6 @@
 .f-center {
   justify-content: center;
 }
+.f-start {
+  align-items: flex-start;
+}

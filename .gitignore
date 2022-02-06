@@ -29,3 +29,4 @@ firebase.json
 .firebase/
 drawable/
 layout2/
+*.json
