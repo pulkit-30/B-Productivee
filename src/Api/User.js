@@ -6,6 +6,7 @@ import config from "../config.json";
  * @SignIn
  * @UserUpdate
  * @UserDelete
+ * @GetUserData
  */
 
 const Auth = async (data) => {
@@ -25,5 +26,31 @@ const Auth = async (data) => {
   });
   return subscribe;
 };
+const GetUser = async (data) => {
+  const target = `https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${config.API_KEY}`;
+  const subscribe = await axios(target, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: {
+      idToken: data.id,
+    },
+  });
+  return subscribe;
+};
 
-export { Auth };
+const LogOut = async (data) => {
+  const target = `https://identitytoolkit.googleapis.com/v1/accounts:update?key=${config.API_KEY}`;
+  const subscribe = await axios(target, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: {
+      idToken: data.id,
+    },
+  });
+  return subscribe;
+};
+export { Auth, GetUser, LogOut };

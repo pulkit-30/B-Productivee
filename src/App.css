@@ -13,3 +13,13 @@
 .f-start {
   align-items: flex-start;
 }
+.c-white {
+  color: white;
+}
+.link {
+  text-decoration: none;
+  color: var(--default-1);
+}
+.active {
+  color: var(--default-3);
+}

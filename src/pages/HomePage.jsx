@@ -3,9 +3,9 @@ import Home from "../components/home/Home";
 
 function HomePage() {
   return (
-    <div>
+    <React.Fragment>
       <Home />
-    </div>
+    </React.Fragment>
   );
 }
 

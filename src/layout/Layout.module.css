@@ -1,0 +1,13 @@
+.Right_Layout {
+  width: 15%;
+  background-color: var(--default-4);
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+  border-right: 1px solid rgb(114, 114, 114);
+}
+.Left_Layout {
+  width: 85%;
+  min-height: 100vh;
+}

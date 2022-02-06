@@ -22,12 +22,10 @@ function AuthForm(props) {
 
     Auth(data)
       .then((res) => {
-        console.log(res.data);
         AuthCtx.LogIn(res.data);
-        navigate("/");
+        navigate(`/profile/${res.data.localId}`);
       })
       .catch((err) => {
-        console.log(err);
         Error.ThrowError(err);
         navigate("/error");
       });

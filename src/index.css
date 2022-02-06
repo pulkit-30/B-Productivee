@@ -6,6 +6,9 @@
   margin: 0;
   padding: 0;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 :root {
   --default-1: #f4e1eb;
   --default-2: #d3b1c2;
@@ -19,4 +22,20 @@ html {
 
 body {
   font-family: var(--primary-font);
+}
+i {
+  margin: 0px 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+}
+i:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
 }
