@@ -6,15 +6,58 @@
 }
 .menu {
   height: 80vh;
-  width: 70%;
-  align-items: flex-start;
-  font-size: 20px;
+  width: 100%;
+  font-size: 17px;
 }
 .right_foot {
+  font-size: 13px;
   color: rgba(136, 136, 136, 0.555);
 }
 .Button__secondary {
   background: none;
   background-color: var(--default-1);
   color: var(--default-4);
+}
+.item {
+  font-size: 20px;
+  width: 70%;
+  margin: 0px auto;
+  cursor: pointer;
+}
+.BtnBox {
+  width: 100%;
+}
+.Detail p {
+  margin: 10px auto;
+  max-height: 300px;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.034);
+  width: 100%;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.Detail p div {
+  width: 80%;
+  transition: 0.2s;
+  margin: 20px auto;
+  background-color: var(--default-1);
+  padding: 10px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  color: var(--default-4);
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+  cursor: pointer;
+}
+.Detail p div:hover {
+  background-color: var(--default-3);
+  color: var(--default-1);
 }

@@ -2,8 +2,6 @@ import React from "react";
 import Flex from "../ui/flex/Flex";
 import HomeImage from "../../assets/login_screen_image.png";
 import Classes from "./Home.module.css";
-import Button from "../ui/Button/Button";
-import { Link } from "react-router-dom";
 function Home() {
   return (
     <Flex className={Classes.HomePage}>
@@ -22,14 +20,6 @@ function Home() {
             Collaborate and plan together across multiple devices on JodWork's
             minimalist Interface
           </p>
-          <Flex className={"s-eve " + Classes.Btn_Box}>
-            <Link to="/Auth/SignIn">
-              <Button className={Classes.Btn}>SignIn</Button>
-            </Link>
-            <Link to="/Auth/SignUp">
-              <Button className={Classes.Button__secondary}>SignUp</Button>
-            </Link>
-          </Flex>
         </Flex>
       </Flex>
     </Flex>

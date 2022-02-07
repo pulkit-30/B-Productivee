@@ -1,13 +1,57 @@
 .Right_Layout {
-  width: 15%;
+  width: 20%;
   background-color: var(--default-4);
   height: 100vh;
   position: sticky;
   top: 0;
   left: 0;
   border-right: 1px solid rgb(114, 114, 114);
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
 }
 .Left_Layout {
-  width: 85%;
+  width: 80%;
   min-height: 100vh;
+}
+.hamburger {
+  display: none;
+}
+@media screen and (max-width: 1232px) {
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10000;
+  }
+  .line {
+    width: 30px;
+    height: 2px;
+    background-color: white;
+    margin: 10px;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+  }
+  .Right_Layout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 40%;
+    transform: translateX(-100vw);
+    -webkit-transform: translateX(-100vw);
+    -moz-transform: translateX(-100vw);
+    -ms-transform: translateX(-100vw);
+    -o-transform: translateX(-100vw);
+  }
+  .Left_Layout {
+    width: 100%;
+    min-height: 100vh;
+  }
 }

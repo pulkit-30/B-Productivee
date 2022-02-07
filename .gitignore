@@ -23,10 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 package-lock.json
-.firebaserc
 firebase-sdk.txt
-firebase.json
 .firebase/
 drawable/
 layout2/
-*.json
+config.json

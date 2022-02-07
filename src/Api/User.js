@@ -1,56 +1,71 @@
-import axios from "axios";
-import config from "../config.json";
+import { auth } from "../firebase";
+import {
+  createUserWithEmailAndPassword,
+  deleteUser,
+  signInWithEmailAndPassword,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
 /**
  * All Requests related to User
  * @SignUp
  * @SignIn
  * @UserUpdate
  * @UserDelete
- * @GetUserData
  */
 
-const Auth = async (data) => {
-  const target = data.isSignUp
-    ? `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${config.API_KEY}`
-    : `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${config.API_KEY}`;
-  const subscribe = await axios(target, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: {
-      email: data.email,
-      password: data.password,
-      returnSecureToken: true,
-    },
-  });
-  return subscribe;
-};
-const GetUser = async (data) => {
-  const target = `https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${config.API_KEY}`;
-  const subscribe = await axios(target, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: {
-      idToken: data.id,
-    },
-  });
-  return subscribe;
+/**
+ * SignUp function
+ * @param {*} data @Object
+ * @returns user
+ */
+const SignUp = async (data) => {
+  const user = await createUserWithEmailAndPassword(
+    auth,
+    data.email,
+    data.password
+  );
+  return user;
 };
 
-const LogOut = async (data) => {
-  const target = `https://identitytoolkit.googleapis.com/v1/accounts:update?key=${config.API_KEY}`;
-  const subscribe = await axios(target, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: {
-      idToken: data.id,
-    },
-  });
-  return subscribe;
+/**
+ * SignIn Function
+ * @param {*} data
+ * @returns user
+ */
+const SignIn = async (data) => {
+  const user = await signInWithEmailAndPassword(
+    auth,
+    data.email,
+    data.password
+  );
+  return user;
 };
-export { Auth, GetUser, LogOut };
+/**
+ *
+ * @param {*} data
+ */
+const SignOut = async (data) => {
+  const isSignOut = await signOut(auth);
+  return isSignOut;
+};
+/**
+ *
+ * @param {*} data
+ * @returns updated Profile
+ */
+const UpdateUser = async (data) => {
+  const updatedUser = updateProfile(auth.currentUser, data);
+  return updatedUser;
+};
+/**
+ *
+ * @returns
+ */
+const DeleteUser = async () => {
+  const user = auth.currentUser;
+  const isDeleted = await deleteUser(user);
+  return isDeleted;
+};
+
+export { SignUp, SignIn, SignOut, UpdateUser, DeleteUser };

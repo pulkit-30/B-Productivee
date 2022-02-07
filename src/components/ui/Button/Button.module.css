@@ -1,6 +1,6 @@
 .Button {
   cursor: pointer;
-  min-width: 200px;
+  min-width: 100px;
   background: linear-gradient(to right, var(--default-2), var(--default-3));
   width: fit-content;
   height: 40px;

@@ -1,34 +1,54 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import Flex from "../ui/flex/Flex";
 import Button from "../ui/Button/Button";
 import Classes from "./AuthForm.module.css";
-import { Auth } from "../../Api/User";
-import AuthContext from "../../context/Auth/AuthContext";
-import ErrorContext from "../../context/Error/ErrorContext";
 import { useNavigate } from "react-router-dom";
+import Loader from "../loader/Loader";
+import { SignUp, SignIn } from "../../Api/User";
+import MessageContext from "../../context/Message/MessageContext";
 function AuthForm(props) {
+  const [isLoading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const AuthCtx = useContext(AuthContext);
-  const Error = useContext(ErrorContext);
+  const Message = useContext(MessageContext);
   const email = useRef();
   const password = useRef();
   const HandelSubmit = async (event) => {
+    //Show Loader
+    setLoading(true);
+    //prevent Page from refreshing
     event.preventDefault();
+    //User data
     const data = {
       email: email.current.value,
       password: password.current.value,
       isSignUp: props.isSignUp,
     };
 
-    Auth(data)
-      .then((res) => {
-        AuthCtx.LogIn(res.data);
-        navigate(`/profile/${res.data.localId}`);
-      })
-      .catch((err) => {
-        Error.ThrowError(err);
-        navigate("/error");
-      });
+    //SignUp
+    props.isSignUp &&
+      SignUp(data)
+        .then((res) => {
+          Message.ThrowMessage("SignUp SuccessFully");
+          setLoading(false);
+          navigate("/");
+        })
+        .catch((err) => {
+          Message.ThrowMessage("Cannot Register Your Account");
+          setLoading(false);
+        });
+
+    //SignIn
+    !props.isSignUp &&
+      SignIn(data)
+        .then((res) => {
+          Message.ThrowMessage("SignIn SuccessFully");
+          setLoading(false);
+          navigate("/");
+        })
+        .catch((err) => {
+          Message.ThrowMessage("Cannot LoggedIn Your Account");
+          setLoading(false);
+        });
   };
   return (
     <Flex className={Classes.Form + " f-center column"}>
@@ -55,7 +75,10 @@ function AuthForm(props) {
               id="password"
             />
           </React.Fragment>
-          <Button>{props.isSignUp ? "SignUp" : "Sign In"}</Button>
+          {isLoading && <Loader />}
+          {!isLoading && (
+            <Button>{props.isSignUp ? "SignUp" : "Sign In"}</Button>
+          )}
         </Flex>
       </form>
     </Flex>

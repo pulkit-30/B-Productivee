@@ -19,9 +19,17 @@
 html {
   overflow-x: hidden;
 }
-
+::-moz-selection {
+  background-color: var(--default-1);
+  color: var(--default-4);
+}
+::selection {
+  background-color: var(--default-1);
+  color: var(--default-4);
+}
 body {
   font-family: var(--primary-font);
+  background-color: rgb(236, 236, 236);
 }
 i {
   margin: 0px 10px;

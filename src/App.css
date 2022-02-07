@@ -23,3 +23,6 @@
 .active {
   color: var(--default-3);
 }
+.Section {
+  min-height: 100vh;
+}
