@@ -1,10 +1,10 @@
-# Firebase
+# Firebase 🔥
 
-## using
+## Task List to be implemented through firebase
 
 - [x] hosting
-- [ ] Firestore
-- [ ] Storage
+- [x] FireStore
+- [x] Storage
 - [x] Auth
 
 <!--  -->
@@ -21,13 +21,13 @@
 
 - [x] GetData
 - [x] SetData
-- [ ] UpdateData
-- [ ] Deleted Data
+- [x] UpdateData
+- [x] Deleted Data
 
 # Storage
 
-- [ ] Store Images
-- [ ] Get Images
+- [x] Store Images
+- [x] Delete Image
 
 # Hosting
 

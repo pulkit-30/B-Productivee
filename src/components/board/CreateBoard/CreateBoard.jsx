@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { addDoc } from "../../../Api/Database";
 import Button from "../../ui/Button/Button";
 import Flex from "../../ui/flex/Flex";
 import Classes from "./CreateBoard.module.css";
@@ -19,7 +20,22 @@ function CreateBoard(props) {
       />
       <label htmlFor="name">Board Name</label>
       <input type="text" id="name" placeholder="Enter Board name" ref={name} />
-      <Button onClick={() => {}}>Create</Button>
+      <Button
+        onClick={() => {
+          addDoc({
+            data: {
+              name: name.current.value,
+              assignedTo: [props.AuthUser.uid],
+              UserId: props.AuthUser.uid,
+              image: "",
+            },
+            id: props.AuthUser.uid,
+            collection: "boards",
+          });
+        }}
+      >
+        Create
+      </Button>
     </Flex>
   );
 }
