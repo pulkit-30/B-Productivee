@@ -3,8 +3,9 @@ import {
   getDownloadURL,
   ref,
   uploadBytesResumable,
-} from "firebase/storage";
-import { storage } from "../firebase";
+} from 'firebase/storage';
+
+import { storage } from '../firebase';
 /**
  *
  * @StoreImage
@@ -14,11 +15,11 @@ import { storage } from "../firebase";
 
 /**
  *
- * @param {*} params
+ * @param {Object} params
  */
 async function StoreImage(params) {
   const metadata = {
-    contentType: "image/jpg",
+    contentType: 'image/png',
   };
 
   // Upload file and metadata to the object 'images/mountains.jpg'
@@ -27,7 +28,7 @@ async function StoreImage(params) {
 
   // Listen for state changes, errors, and completion of the upload.
   uploadTask.on(
-    "state_changed",
+    'state_changed',
     (snapshot) => {
       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
       // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -40,7 +41,7 @@ async function StoreImage(params) {
     () => {
       // Upload completed successfully, now we can get the download URL
       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-        console.log("File available at", downloadURL);
+        console.log(downloadURL);
       });
     }
   );
@@ -48,7 +49,7 @@ async function StoreImage(params) {
 
 /**
  *
- * @param {*} params
+ * @param {Object} params
  */
 async function DeleteImage(params) {
   // @file name of the file to be deleted
@@ -57,7 +58,7 @@ async function DeleteImage(params) {
   // Delete the file
   deleteObject(desertRef)
     .then(() => {
-      console.log("file deleted");
+      console.log('file deleted');
     })
     .catch((error) => {
       console.log(error);

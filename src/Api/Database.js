@@ -1,5 +1,6 @@
-import { db } from "../firebase";
-import { collection, getDocs, setDoc, doc } from "firebase/firestore";
+import { db } from '../firebase';
+import { collection, getDocs, setDoc, doc, getDoc } from 'firebase/firestore';
+import axios from 'axios';
 
 /**
  *
@@ -11,49 +12,60 @@ import { collection, getDocs, setDoc, doc } from "firebase/firestore";
 
 /**
  *
- * @param {*} params
+ * @param {Object} params
+ * @returns
+ */
+async function getSpecificData(params) {
+  const querySnapshot = await getDoc(doc(db, params.collection, params.id));
+  return querySnapshot.data();
+}
+/**
+ *
+ * @param {Object} params
  * @returns
  */
 async function getData(params) {
   const response = [];
   const querySnapshot = await getDocs(collection(db, params.collection));
   querySnapshot.forEach((doc) => {
-    response.push(doc.data());
+    const mData = doc.data();
+    mData.id = doc.id;
+    response.push(mData);
   });
   return response;
 }
 /**
  *
- * @param {*} params
+ * @param {Object} params
  * @returns
  */
 async function setData(params) {
   try {
-    await setDoc(doc(db, params.collection), params.data);
+    await setDoc(doc(db, params.collection, params.id), params.data);
   } catch (e) {
-    console.error("Error adding document: ", e);
-    return { Status: "Error", Message: "Error Occurred" };
+    console.error('Error adding document: ', e);
+    return { Status: 'Error', Message: 'Error Occurred' };
   }
-  return { Status: "Success", Message: "Added SuccessFully" };
+  return { Status: 'Success', Message: 'Added SuccessFully' };
 }
 
 /**
  *
- * @param {*} params
+ * @param {Object} params
  * @returns
  */
 async function addDoc(params) {
   const ref = doc(collection(db, params.collection));
   // Add a new document with a generated id.
   await setDoc(ref, params.data);
-  console.log("Document written with ID: ", ref.id);
-  params.data.boardId = ref.id;
+  console.log('Document written with ID: ', ref.id);
+  params.data.id = ref.id;
   return params.data;
 }
 
 /**
  *
- * @param {*} params
+ * @param {Object} params
  */
 async function deleteDoc(params) {
   await deleteDoc(doc(db, params.collection, params.id));
@@ -62,4 +74,4 @@ async function deleteDoc(params) {
 /**
  * export these functions
  */
-export { getData, setData, addDoc, deleteDoc };
+export { getData, getSpecificData, setData, addDoc, deleteDoc };

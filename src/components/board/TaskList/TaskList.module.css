@@ -1,0 +1,39 @@
+.Add_Button {
+  width: 100%;
+  background-color: var(--default-3);
+  height: 50px;
+  color: var(--default-1);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.AddTaskList {
+  box-shadow: 0px 0px 10px var(--default-3);
+  border-radius: 50%;
+  font-size: 30px;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  background-color: var(--default-4);
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+}
+.AddTaskList:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}

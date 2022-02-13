@@ -1,17 +1,17 @@
-import React from "react";
-import { useReducer } from "react";
-import MessageContext from "./MessageContext";
+import React from 'react';
+import { useReducer } from 'react';
+import MessageContext from './MessageContext';
 const defaultState = {
   isMessage: false,
   Message: undefined,
 };
 const HandelReducer = (state, action) => {
-  if (action.type === "Throw") {
+  if (action.type === 'Throw') {
     return {
       isMessage: true,
       Message: action.Message,
     };
-  } else if (action.type === "Clear") {
+  } else if (action.type === 'Clear') {
     return {
       isMessage: false,
       Message: undefined,
@@ -23,18 +23,18 @@ function MessageProvider(props) {
   const [state, dispatch] = useReducer(HandelReducer, defaultState);
   const ThrowMessage = (message) => {
     return dispatch({
-      type: "Throw",
+      type: 'Throw',
       Message: message,
     });
   };
   const ClearMessage = () => {
     return dispatch({
-      type: "Clear",
+      type: 'Clear',
     });
   };
   const ContextValue = {
-    isMessage: state.isError,
-    Message: state.Error,
+    isMessage: state.isMessage,
+    Message: state.Message,
     ThrowMessage: ThrowMessage,
     ClearMessage: ClearMessage,
   };

@@ -1,11 +1,11 @@
-import React, { useContext, useRef, useState } from "react";
-import Flex from "../ui/flex/Flex";
-import Button from "../ui/Button/Button";
-import Classes from "./AuthForm.module.css";
-import { useNavigate } from "react-router-dom";
-import Loader from "../loader/Loader";
-import { SignUp, SignIn } from "../../Api/User";
-import MessageContext from "../../context/Message/MessageContext";
+import React, { useContext, useRef, useState } from 'react';
+import Flex from '../ui/flex/Flex';
+import Button from '../ui/Button/Button';
+import Classes from './AuthForm.module.css';
+import { useNavigate } from 'react-router-dom';
+import Loader from '../loader/Loader';
+import { SignUp, SignIn } from '../../Api/User';
+import MessageContext from '../../context/Message/MessageContext';
 function AuthForm(props) {
   const [isLoading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -28,12 +28,12 @@ function AuthForm(props) {
     props.isSignUp &&
       SignUp(data)
         .then((res) => {
-          Message.ThrowMessage("SignUp SuccessFully");
+          Message.ThrowMessage('SignUp SuccessFully');
           setLoading(false);
-          navigate("/");
+          navigate('/');
         })
         .catch((err) => {
-          Message.ThrowMessage("Cannot Register Your Account");
+          Message.ThrowMessage('Cannot Register Your Account');
           setLoading(false);
         });
 
@@ -41,43 +41,43 @@ function AuthForm(props) {
     !props.isSignUp &&
       SignIn(data)
         .then((res) => {
-          Message.ThrowMessage("SignIn SuccessFully");
+          Message.ThrowMessage('SignIn SuccessFully');
           setLoading(false);
-          navigate("/");
+          navigate('/');
         })
         .catch((err) => {
-          Message.ThrowMessage("Cannot LoggedIn Your Account");
+          Message.ThrowMessage('Cannot LoggedIn Your Account');
           setLoading(false);
         });
   };
   return (
-    <Flex className={Classes.Form + " f-center column"}>
-      <Flex className={"column " + Classes.Form_Top}>
-        <h1>{props.isSignUp ? "SignUp" : "Sign In"}</h1>
+    <Flex className={Classes.Form + ' f-center column'}>
+      <Flex className={'column ' + Classes.Form_Top}>
+        <h1>{props.isSignUp ? 'SignUp' : 'Sign In'}</h1>
         <p>
           {props.isSignUp
-            ? "Enter your name,Email-id, and Password to register with us"
-            : "Enter your Email-id, and Password to LogIn with us"}
+            ? 'Enter your name,Email-id, and Password to register with us'
+            : 'Enter your Email-id, and Password to LogIn with us'}
         </p>
       </Flex>
       <form onSubmit={HandelSubmit} className={Classes.Form_Box}>
-        <Flex className="column f-start">
+        <Flex className='column f-start'>
           <React.Fragment>
-            <label htmlFor="email">Email</label>
-            <input type="email" ref={email} placeholder="Email" id="email" />
+            <label htmlFor='email'>Email</label>
+            <input type='email' ref={email} placeholder='Email' id='email' />
           </React.Fragment>
           <React.Fragment>
-            <label htmlFor="password">Password</label>
+            <label htmlFor='password'>Password</label>
             <input
-              type="text"
+              type='text'
               ref={password}
-              placeholder="Password"
-              id="password"
+              placeholder='Password'
+              id='password'
             />
           </React.Fragment>
           {isLoading && <Loader />}
           {!isLoading && (
-            <Button>{props.isSignUp ? "SignUp" : "Sign In"}</Button>
+            <Button>{props.isSignUp ? 'SignUp' : 'Sign In'}</Button>
           )}
         </Flex>
       </form>
