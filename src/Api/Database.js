@@ -58,7 +58,7 @@ async function addDoc(params) {
   const ref = doc(collection(db, params.collection));
   // Add a new document with a generated id.
   await setDoc(ref, params.data);
-  console.log('Document written with ID: ', ref.id);
+  // console.log('Document written with ID: ', ref.id);
   params.data.id = ref.id;
   return params.data;
 }
