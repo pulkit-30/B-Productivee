@@ -1,0 +1,28 @@
+.column {
+  flex-direction: column !important;
+}
+.s-eve {
+  justify-content: space-evenly;
+}
+.s-btw {
+  justify-content: space-between;
+}
+.f-center {
+  justify-content: center;
+}
+.f-start {
+  align-items: flex-start;
+}
+.c-white {
+  color: white;
+}
+.link {
+  text-decoration: none;
+  color: var(--default-1);
+}
+.active {
+  color: var(--default-3);
+}
+.Section {
+  min-height: 100vh;
+}

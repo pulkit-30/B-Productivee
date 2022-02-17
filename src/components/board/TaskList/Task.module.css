@@ -1,0 +1,22 @@
+.Task {
+  position: relative;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  box-shadow: inset 0px 0px 1000000px var(--default-1),
+    0px 0px 10px var(--default-3);
+  margin: 70px 20px 10px 20px;
+  min-width: 300px;
+}
+.Name {
+  width: 100%;
+  background-color: var(--default-3);
+  height: 50px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: var(--default-1);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}

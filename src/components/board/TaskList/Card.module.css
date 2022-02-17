@@ -1,0 +1,75 @@
+.Card {
+  width: 400px;
+  height: fit-content;
+  background-color: #fff;
+  color: black;
+  box-shadow: 0px 0px 5px var(--default-3);
+  text-overflow: unset;
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  margin: 10px;
+}
+.Card p {
+  overflow-wrap: break-word;
+  width: 80%;
+}
+.Menu {
+  background-color: var(--default-3);
+  padding: 10px 0px;
+  width: 300px;
+  position: absolute;
+  right: -300px;
+  border: 1px solid white;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0px 0px 10px var(--default-4);
+}
+.Menu .item {
+  width: 80%;
+  height: 40px;
+  text-align: left;
+  margin: 10px auto;
+  text-align: center;
+  cursor: pointer;
+}
+.Menu div:hover {
+  background-color: var(--default-1);
+  color: #000;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.Menu::after {
+  content: '';
+  background-color: var(--default-3);
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 50%;
+  left: -16px;
+  transform: rotate(45deg);
+  z-index: 100;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  border-left: 1px solid white;
+  border-bottom: 1px solid white;
+}
+.Menu:hover .Menu {
+  display: block;
+}
+.edit:hover .Menu {
+  display: block;
+}
