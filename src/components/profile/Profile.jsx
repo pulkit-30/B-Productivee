@@ -6,10 +6,10 @@ import Classes from "./Profile.module.css";
 function Profile(props) {
   const User = props.User;
   return (
-    <Flex className="Section f-start">
+    <Flex className={"Section f-start "+Classes.Container}>
       {!User && <Loader />}
       {User && (
-        <Flex className={"f-start " + Classes.ProfileBox}>
+        <Flex className={Classes.ProfileBox}>
           <Flex className={Classes.ProfileImage}>
             <ProfilePicture image={User?.image} />
             <div className={Classes.EditIcon}>

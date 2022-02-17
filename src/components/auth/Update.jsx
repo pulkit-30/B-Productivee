@@ -14,8 +14,8 @@ function Update(props) {
   const Message = useContext(MessageContext);
   const [isLoading, setLoading] = useState(false);
   const [imageFile, updateImage] = useState(props.AuthUser?.image || null);
-  const [name, setName] = useState(props.AuthUser?.displayName);
-  const [Mobile, setMobile] = useState(props.AuthUser.Mobile);
+  const [name, setName] = useState(props.AuthUser?.name);
+  const [Mobile, setMobile] = useState(props.AuthUser.mobile);
   const uploadTask = () => {
     StoreImage({ file: imageFile });
   };
@@ -49,7 +49,7 @@ function Update(props) {
           });
       })
       .catch((err) => Message.ThrowMessage(err));
-  };
+  };  
 
   return (
     <Flex className={Classes.Form + ' f-center column'}>
@@ -59,8 +59,8 @@ function Update(props) {
             <label htmlFor='profileImage'>
               <ProfilePicture
                 image={
-                  (imageFile && URL.createObjectURL(imageFile)) ||
-                  props.AuthUser?.photoURL ||
+                  imageFile||
+                  props.AuthUser?.image ||
                   null
                 }
               />
