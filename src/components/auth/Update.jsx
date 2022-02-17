@@ -16,28 +16,28 @@ function Update(props) {
   const [imageFile, updateImage] = useState(props.AuthUser?.image || null);
   const [name, setName] = useState(props.AuthUser?.name);
   const [Mobile, setMobile] = useState(props.AuthUser.mobile);
-  const uploadTask = () => {
-    StoreImage({ file: imageFile });
-  };
+  // const uploadTask = () => {
+  //   StoreImage({ file: imageFile });
+  // };
   const HandelSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    imageFile && uploadTask(); //upload profile photo and store it on firebase storage
+    // imageFile && uploadTask(); //upload profile photo and store it on firebase storage
     const data = {
-      id: props.AuthUser.uid,
-      name: name,
+      id: props.AuthUser.id,
+      name: name || props.AuthUser.name,
       email: props.AuthUser.email,
-      image: props.AuthUser.photoURL || '',
-      mobile: parseInt(Mobile) || 0,
+      image: props.AuthUser.image || '',
+      mobile: parseInt(Mobile) || props.AuthUser.mobile,
       fcmToken: '',
     };
     UpdateUser({
-      displayName: name,
-      photoURL: null,
-      phoneNumber: parseInt(Mobile),
+      displayName: name || props.AuthUser?.name,
+      photoURL: null || props.AuthUser?.image,
+      phoneNumber: parseInt(Mobile) || props.AuthUser.mobile,
     })
       .then(() => {
-        setData({ collection: 'users', id: props.AuthUser?.uid, data: data })
+        setData({ collection: 'users', id: props.AuthUser?.id, data: data })
           .then(() => {
             setLoading(false);
             navigate('/');
