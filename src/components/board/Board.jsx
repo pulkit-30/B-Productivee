@@ -5,13 +5,7 @@ import Classes from './Board.module.css';
 import TabBar from './tabBar/TabBar';
 import TaskList from './TaskList/TaskList';
 function Board(props) {
-  const [tabs, updateTabs] = useState([
-    {
-      name: 'Sample',
-      image:
-        'https://images.unsplash.com/photo-1640622308205-8ad9478c2386?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80',
-    },
-  ]);
+  const [tabs, updateTabs] = useState([]);
   useEffect(() => {
     getData({ collection: 'boards' }).then((res) => {
       res = res.filter(
@@ -34,10 +28,10 @@ function Board(props) {
           style={{
             position: 'absolute',
             top: '50%',
-            left: '30%',
+            left: '20%',
           }}
         >
-          Welcome to Jodd App... Get Started{' '}
+          Welcome to B-Productivee App... Get Started{' '}
         </h1>
       )}
       {props.data && <TaskList data={props.data} AuthUser={props.AuthUser} />}

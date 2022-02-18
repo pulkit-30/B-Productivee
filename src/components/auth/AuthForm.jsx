@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Loader from '../loader/Loader';
 import { SignUp, SignIn } from '../../Api/User';
 import MessageContext from '../../context/Message/MessageContext';
+import { setData } from '../../Api/Database';
 function AuthForm(props) {
   const [isLoading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -24,13 +25,29 @@ function AuthForm(props) {
       isSignUp: props.isSignUp,
     };
 
+
     //SignUp
     props.isSignUp &&
       SignUp(data)
         .then((res) => {
+          setData({ collection: 'users', id: res.user.uid, data: {
+            id: res.user.uid,
+            name: '',
+            email:email.current.value,
+            image: null ,
+            mobile: 0,
+            fcmToken: '',
+          } })
+          .then(() => {
+            Message.ThrowMessage('Sign Up successfully');
+            setLoading(false);
+            navigate('/');
+          })
+          .catch((error) => {
+            setLoading(false);
+            Message.ThrowMessage(error);
+          });
           Message.ThrowMessage('SignUp SuccessFully');
-          setLoading(false);
-          navigate('/');
         })
         .catch((err) => {
           Message.ThrowMessage('Cannot Register Your Account');
@@ -49,7 +66,9 @@ function AuthForm(props) {
           Message.ThrowMessage('Cannot LoggedIn Your Account');
           setLoading(false);
         });
+       
   };
+
   return (
     <Flex className={Classes.Form + ' f-center column'}>
       <Flex className={'column ' + Classes.Form_Top}>

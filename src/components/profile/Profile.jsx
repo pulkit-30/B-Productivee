@@ -3,6 +3,7 @@ import Loader from "../loader/Loader";
 import Flex from "../ui/flex/Flex";
 import ProfilePicture from "../User/ProfilePicture";
 import Classes from "./Profile.module.css";
+import {Link} from "react-router-dom"
 function Profile(props) {
   const User = props.User;
   return (
@@ -12,9 +13,9 @@ function Profile(props) {
         <Flex className={Classes.ProfileBox}>
           <Flex className={Classes.ProfileImage}>
             <ProfilePicture image={User?.image} />
-            <div className={Classes.EditIcon}>
+            <Link to={"/update/"+User?.id} className={Classes.EditIcon}>
               <i className="fas fa-edit"></i>
-            </div>
+            </Link>
           </Flex>
           <Flex className={"column s-eve f-start " + Classes.ProfileInfo}>
             <div>Name: {User?.name}</div>

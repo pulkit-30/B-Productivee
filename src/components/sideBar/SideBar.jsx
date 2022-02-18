@@ -14,7 +14,7 @@ function SideBar(props) {
   };
   return (
     <Flex className={'column c-white s-btw ' + Classes.SideBar}>
-      <h1>Jodd App</h1>
+      <h1>B-Productivee App</h1>
       <Flex className={'column ' + Classes.menu}>
         <NavLink to='/' className={'link ' + Classes.item}>
           <i className='fas fa-home'></i> Home
@@ -27,6 +27,12 @@ function SideBar(props) {
             >
               <i className='fas fa-user'></i> Profile
             </NavLink>
+            <NavLink
+            to={'/error'}
+            className={'link ' + Classes.item}
+          >
+          <i className="fa-solid fa-chalkboard"></i> White Board
+          </NavLink>
             <NavLink
               to={'/update/' + Auth.User?.uid}
               className={'link ' + Classes.item}

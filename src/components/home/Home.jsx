@@ -13,7 +13,7 @@ function Home() {
         />
       </Flex>
       <Flex className={"column s-eve " + Classes.HomePage_Right}>
-        <h1>Jodd App</h1>
+        <h1>B-Productivee App</h1>
         <h2>Lets get Started</h2>
         <Flex className="column">
           <p>
