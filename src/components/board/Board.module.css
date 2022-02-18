@@ -15,9 +15,9 @@
   align-items: flex-start;
 }
 .Board h1 {
-  font-size: 40px;
+  font-size: 45px;
   font-weight: bolder;
-  color: rgba(216, 216, 216, 0.788);
+  color: rgba(112, 112, 112, 0.788);
 }
 .AddIcon {
   min-width: 90px;

@@ -26,3 +26,11 @@
 .Section {
   min-height: 100vh;
 }
+.Fade-color{
+  font-size: 40px;
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  color: rgba(77, 77, 77, 0.514);
+}

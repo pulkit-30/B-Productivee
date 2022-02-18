@@ -32,6 +32,12 @@ function App_Routes(props) {
           )
         }
       />
+      <Route
+      path='/Error'
+      element={
+          <Error />
+      }
+    />
       <Route path='/Auth/:type' element={<AuthPage />} />
       <Route
         path='/Profile/:id'
