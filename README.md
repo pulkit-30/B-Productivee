@@ -1,3 +1,6 @@
+![Blue and White Focus Desktop Wallpaper (500 x 800 px) (800 x 300 px)](https://user-images.githubusercontent.com/76155456/154799110-503dfb77-fce0-4e91-bc04-67bb56aa7d24.png)
+
+
 # Firebase 🔥
 
 ## Task List to be implemented through firebase
