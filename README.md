@@ -35,3 +35,10 @@
 # Hosting
 
 - [x] host application on firebase
+
+---
+
+## Project Admin 
+
+[<img src="https://avatars.githubusercontent.com/pulkit-30?size=50"/>](https://gthub.com/pulkit-30)
+[<img src="https://avatars.githubusercontent.com/theyashgrover?size=50"/>](https://gthub.com/theyashgrover)
